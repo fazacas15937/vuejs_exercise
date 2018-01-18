@@ -13,6 +13,14 @@
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
 
+	
+	<style>
+		img {
+		
+			height:8em;
+		
+		}
+	</style>
   </head>
  <!--
            TODO Show collection data. See js/script.js
@@ -27,28 +35,34 @@
   <body>
 
     <!-- https://vuejs.org/v2/guide/index.html -->
-    <div id="app">
+    <div id="app" class="container">
 		<h1>{{d.collection.title}}</h1>
 			
-			<div id = "item-list">	
-				<div class="card" v-for="item in d.collection.items">
-					<div class="card-body">
+			<div id = "item-list" class="row">	
+				<div class="card col-lg-4" v-for="item in d.collection.items">
+				
+				<div class="card-body">
+	
+						<h5 class="card" v-for="elemento in item.data"  v-if="elemento.name=='name'"> <img v-if="elemento.value=='The Lord of the Rings'"class="card-img-top" src="a.jpg" alt="Card image cap"> 
+						<img v-if="elemento.value=='The Hunger Games' "class="card-img-top" src="b.jpg" alt="Card image cap"> 
+						<img v-if="elemento.value=='Game of Thrones' "class="card-img-top" src="c.jpg" alt="Card image cap">{{elemento.value}}</h5>
+						
+					
 					<ul>
 
-							<li v-for="elemento in item.data">		
-								<ul>
-												<li>
+							<li v-for="elemento in item.data" v-if="elemento.name!='name'">	
+									
+							
 													<b>{{elemento.prompt}}</b>:
-												</li>
-												<li>
+												
 													<i>{{elemento.value}}</i>
-												</li>
-								</ul>
+											
+								
 
 							</li>
 						</ul>
-						<li><a v-bind:href="item.href" class="card-link">Wikipedia</a>
-							</li>
+						<a v-bind:href="item.href" class="card-link">Wikipedia</a>
+							
 					</div>
 				</div>
 			
