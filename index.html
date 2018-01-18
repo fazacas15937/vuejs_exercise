@@ -8,15 +8,13 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+	
     <!-- https://vuejs.org/v2/guide/#Getting-Started -->
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+
   </head>
-
-  <body>
-
-    <!-- https://vuejs.org/v2/guide/index.html -->
-    <div id="app">
-      <!--
+ <!--
            TODO Show collection data. See js/script.js
            - Show collection Title
            - For each item (https://vuejs.org/v2/guide/index.html#Conditionals-and-Loops)
@@ -26,7 +24,43 @@
                - Display its "value" property in italic style
       -->
 
-    </div>
+  <body>
+
+    <!-- https://vuejs.org/v2/guide/index.html -->
+    <div id="app">
+		<h1>{{d.collection.title}}</h1>
+			
+			<div id = "item-list">	
+				<div class="card" v-for="item in d.collection.items">
+					<div class="card-body">
+					<ul>
+
+							<li v-for="elemento in item.data">		
+								<ul>
+												<li>
+													<b>{{elemento.prompt}}</b>:
+												</li>
+												<li>
+													<i>{{elemento.value}}</i>
+												</li>
+								</ul>
+
+							</li>
+						</ul>
+						<li><a v-bind:href="item.href" class="card-link">Wikipedia</a>
+							</li>
+					</div>
+				</div>
+			
+			</div>
+
+
+					
+	</div>
+			
+				
+    
+	  
 
     <script src="js/script.js"></script>
   </body>
