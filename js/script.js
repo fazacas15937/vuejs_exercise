@@ -45,7 +45,27 @@ var server_data = {
 var app = new Vue({
   el: '#app',
   data: {
-    d: server_data
+			d: server_data
+	}, 
+  methods:{
+  
+		  buttonclick: function(evento) {
+			
+			var boton=evento.target;
+			var lista= boton.nextElementSibling;
+			
+			if(boton.innerText=="Show")
+				{
+					boton.innerText ="Hide";
+					lista.style.display= "none";
+				}
+			else  
+				{
+					boton.innerText="Show";
+					lista.style.display="block";
+				}
+
+		  }
   }
 });
 

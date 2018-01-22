@@ -17,7 +17,7 @@
 	<style>
 		img {
 		
-			height:8em;
+			height:20em;
 		
 		}
 	</style>
@@ -43,11 +43,11 @@
 				
 				<div class="card-body">
 	
-						<h5 class="card" v-for="elemento in item.data"  v-if="elemento.name=='name'"> <img v-if="elemento.value=='The Lord of the Rings'"class="card-img-top" src="a.jpg" alt="Card image cap"> 
+						<h5 class="card-title" v-for="elemento in item.data"  v-if="elemento.name=='name'"> <img v-if="elemento.value=='The Lord of the Rings'"class="card-img-top" src="a.jpg" alt="Card image cap"> 
 						<img v-if="elemento.value=='The Hunger Games' "class="card-img-top" src="b.jpg" alt="Card image cap"> 
 						<img v-if="elemento.value=='Game of Thrones' "class="card-img-top" src="c.jpg" alt="Card image cap">{{elemento.value}}</h5>
-						
-					
+						<button class="btn btn-primary btn-block" @click="buttonclick(event)">Show</button>
+					 
 					<ul>
 
 							<li v-for="elemento in item.data" v-if="elemento.name!='name'">	
